@@ -24,6 +24,8 @@ public class SpringAppDevProfileTests {
     @Autowired
     private ApplicationContext applicationContext;
 
+    /* ----- uncomment one test at a time and add just enough code to make it pass -----
+
     @Test
     public void testComponentHasExternalizedDevlProfileProperty () throws Exception {
         TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
@@ -42,5 +44,6 @@ public class SpringAppDevProfileTests {
         assertEquals("Happiness is the only thing that multiplies when you share it. -- Albert Schweitzer",someConfigProperties.getMessageOfTheDay());
     }
 
+     */
 
 }
