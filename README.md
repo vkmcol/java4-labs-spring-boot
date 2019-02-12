@@ -38,10 +38,10 @@ Unpacking objects: 100% (61/61), done.
 
 __Important:__ you may not change the code in any test cases. _The only permissible difference between the base version of each JUnit test class and yours is yours will have no tests commented out and the file is otherwise identical._
 
-1. Starting with ``edu.cscc.java4.sbootlab.SpringAppTests`` get the first test to pass.
+1. Starting with ``edu.cscc.java4.sbootlab.SpringAppTests`` get the first test to pass
 2. One by one, get the next test to pass
 
-Once you SpringAppTests is completely working, repeat these steps with ``edu.cscc.java4.sbootlab.SpringAppDevProfileTests``
+Once SpringAppTests is completely working, repeat these steps with ``edu.cscc.java4.sbootlab.SpringAppDevProfileTests``
 
 ## Submitting your work
 
