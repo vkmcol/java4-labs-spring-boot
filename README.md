@@ -7,15 +7,9 @@ two artifacts: ``spring-boot-starter`` and ``spring-boot-starter-test``
 1. Add just enough code to get all tests in both files under ``src/test/java/edu/cscc/java4/sbootlab``
 to run successfully
 
-## Prerequisites
-
-* Create a "labs" directory if you don't already have one by opening a terminal
-and typing:
-``mkdir ~/labs``
-
 ## Getting Started:
 
-1. Copy the starter code from here into a new, private repository in your personal GitHub account using [these instructions](https://github.com/jeff-anderson-cscc/submitting-assignments-lab#copy-the-starter-code-into-a-new-private-repository-in-your-personal-github-account)
+1. Copy the starter code from here into a new, private repository in your personal GitHub account using [these instructions](https://github.com/jeff-anderson-cscc/submitting-assignments-lab#copy-the-starter-code-into-a-new-private-repository-in-your-personal-github-account) substituting this repository URL ``https://github.com/jeff-anderson-cscc/java4-labs-spring-boot.git`` for the one referenced in that document
 2. Create a new branch for your code changes as described in [these instructions](https://github.com/jeff-anderson-cscc/submitting-assignments-lab#before-you-start-coding)
 
 ## Completing the Assignment
