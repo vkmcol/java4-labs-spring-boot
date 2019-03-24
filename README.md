@@ -16,10 +16,12 @@ to run successfully
 
 __Important:__ you may not change the code in any test cases. _The only permissible difference between the base version of each JUnit test class and yours is yours will have no tests commented out and the file is otherwise identical._
 
-1. Starting with ``edu.cscc.java4.sbootlab.SpringAppTests`` get the first test to pass
-2. One by one, get the next test to pass
-
-Once SpringAppTests is completely working, repeat these steps with ``edu.cscc.java4.sbootlab.SpringAppDevProfileTests``
+1. In the ``pom.xml``, add the latest Spring Boot parent pom and
+two dependencies: ``spring-boot-starter`` and ``spring-boot-starter-test``
+1. Starting with ``edu.cscc.java4.sbootlab.SpringAppTests``:
+  1. get the first test to pass
+  1. One by one, get the next test to pass
+1. Once SpringAppTests is completely working, repeat these steps with ``edu.cscc.java4.sbootlab.SpringAppDevProfileTests``
 
 ## Submitting your work
 
