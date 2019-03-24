@@ -24,26 +24,42 @@ public class SpringAppDevProfileTests {
     @Autowired
     private ApplicationContext applicationContext;
 
+    @Test
+    public void applicationPropertiesFileExists() throws Exception {
+        Resource applicationProperties = new ClassPathResource("/application-devl.properties");
+        Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
+    }
+
     /* ----- uncomment one test at a time and add just enough code to make it pass -----
 
     @Test
     public void testComponentHasExternalizedDevlProfileProperty () throws Exception {
-        TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
-        assertEquals("developmentProfile",testComponent.getExternalProperty());
-
         Resource applicationProperties = new ClassPathResource("/application-devl.properties");
         Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
-        assertEquals("developmentProfile",props.getProperty("edu.cscc.java4.sbootlab.externalProperty"));
+        assertEquals("developmentProfile",props.getProperty("edu.cscc.java4.sbootlab.someProperty"));
+
+        TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
+        assertEquals("developmentProfile",testComponent.getSomeProperty());
     }
 
     @Test
     public void configurationPropertiesClassPullsPropsFromExternalConfig_Test () throws Exception {
+        // Check properties file:
+        Resource applicationProperties = new ClassPathResource("/application-devl.properties");
+        Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
+        assertEquals("false",props.getProperty("edu.cscc.java4.sbootlab.config.enabled"));
+        assertEquals("jeff-anderson.com",props.getProperty("edu.cscc.java4.sbootlab.config.remote-address"));
+        assertEquals("Happiness is the only thing that multiplies when you share it. -- Albert Schweitzer",
+          props.getProperty("edu.cscc.java4.sbootlab.config.message-of-the-day"));
+
+        // Check Java class properties
+
         SomeConfigProperties someConfigProperties = applicationContext.getBean(edu.cscc.java4.sbootlab.SomeConfigProperties.class);
         assertFalse(someConfigProperties.isEnabled());
         assertEquals(InetAddress.getByName("jeff-anderson.com"),someConfigProperties.getRemoteAddress());
         assertEquals("Happiness is the only thing that multiplies when you share it. -- Albert Schweitzer",someConfigProperties.getMessageOfTheDay());
     }
 
-     */
+    */
 
 }

@@ -31,7 +31,7 @@ public class SpringAppTests {
                 getAnnotation(org.springframework.boot.autoconfigure.SpringBootApplication.class));
     }
 
-    /* ----- uncomment one test at a time and add just enough code to make it pass -----
+    /*
 
     @Test
     public void componentLoads_Test () {
@@ -39,30 +39,63 @@ public class SpringAppTests {
     }
 
     @Test
-    public void componentHasExternalizedProperty_Test () throws Exception {
+    public void testComponentHasSomeProperty () throws Exception {
         TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
-        assertEquals("activeProfile",testComponent.getExternalProperty());
-
-        Resource applicationProperties = new ClassPathResource("/application.properties");
-        Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
-        assertEquals("activeProfile",props.getProperty("edu.cscc.java4.sbootlab.externalProperty"));
+        Class[] paramList = { };
+        assertNotNull(testComponent.getClass().getMethod("getSomeProperty", paramList));
     }
 
     @Test
-    public void configurationPropertiesClassIsFound_Test () {
-        SomeConfigProperties someConfigProperties = applicationContext.getBean(edu.cscc.java4.sbootlab.SomeConfigProperties.class);
+    public void applicationPropertiesFileExists() throws Exception {
+        Resource applicationProperties = new ClassPathResource("/application.properties");
+        Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
+    }
+
+    @Test
+    public void applicationPropertiesHasTestComponentProperty_Test() throws Exception {
+        Resource applicationProperties = new ClassPathResource("/application.properties");
+        Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
+        assertEquals("defaultProfile",props.getProperty("edu.cscc.java4.sbootlab.someProperty"));
+    }
+
+    @Test
+    public void testComponentSetSomePropertyProperlyDecorated_Test () throws Exception {
+        Class[] paramList = { String.class };
+
+        TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
+        Annotation annotation = testComponent.getClass().getMethod("setSomeProperty", paramList).getAnnotation(
+          org.springframework.beans.factory.annotation.Value.class);
+        assertNotNull(annotation);
+        assertThat(annotation.toString(), CoreMatchers.containsString("${edu.cscc.java4.sbootlab.someProperty}"));
+        assertEquals("defaultProfile", testComponent.getSomeProperty());
+    }
+
+    @Test
+    public void configurationPropertiesClassIsFound_Test () throws Exception {
+        assertNotNull(Class.forName("edu.cscc.java4.sbootlab.SomeConfigProperties").newInstance());
     }
 
     @Test
     public void configurationPropertiesClassProperlyDecorated_Test () {
         SomeConfigProperties someConfigProperties = applicationContext.getBean(edu.cscc.java4.sbootlab.SomeConfigProperties.class);
-        Annotation annotation = someConfigProperties.getClass().getAnnotation(org.springframework.boot.context.properties.ConfigurationProperties.class);
-        assertNotNull(annotation);
-        assertThat(annotation.toString(), CoreMatchers.containsString("prefix=edu.cscc.java4.sbootlab.config"));
+        assertNotNull(someConfigProperties.getClass().getAnnotation(org.springframework.stereotype.Component.class));
+
+        Annotation configPropsAnnotation = someConfigProperties.getClass().getAnnotation(org.springframework.boot.context.properties.ConfigurationProperties.class);
+        assertNotNull(configPropsAnnotation);
+        assertThat(configPropsAnnotation.toString(), CoreMatchers.containsString("prefix=edu.cscc.java4.sbootlab.config"));
     }
 
     @Test
     public void configurationPropertiesClassPullsPropsFromExternalConfig_Test () throws Exception {
+        // Check properties file:
+        Resource applicationProperties = new ClassPathResource("/application.properties");
+        Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
+        assertEquals("true",props.getProperty("edu.cscc.java4.sbootlab.config.enabled"));
+        assertEquals("www.cscc.edu",props.getProperty("edu.cscc.java4.sbootlab.config.remote-address"));
+        assertEquals("You always pass failure on the way to success -- Mickey Rooney",
+          props.getProperty("edu.cscc.java4.sbootlab.config.message-of-the-day"));
+
+        // Check Java class properties
         SomeConfigProperties someConfigProperties = applicationContext.getBean(edu.cscc.java4.sbootlab.SomeConfigProperties.class);
         assertTrue(someConfigProperties.isEnabled());
         assertEquals(InetAddress.getByName("www.cscc.edu"),someConfigProperties.getRemoteAddress());
