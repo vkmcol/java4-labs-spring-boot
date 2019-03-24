@@ -1,5 +1,7 @@
 # Java IV Spring Boot Lab
 
+In this lab, you will learn how to externalize properties in a Spring Boot application
+
 ## Objectives
 
 1. Configure a minimal ``pom.xml`` with the latest Spring Boot parent pom, and
