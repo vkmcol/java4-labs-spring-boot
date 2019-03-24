@@ -31,43 +31,43 @@ public class SpringAppTests {
                 getAnnotation(org.springframework.boot.autoconfigure.SpringBootApplication.class));
     }
 
-    /*
+    /* ----- uncomment one test at a time and add just enough code to make it pass -----
 
     @Test
     public void componentLoads_Test () {
-        assertNotNull(applicationContext.getBean("testComponent"));
+        assertNotNull(applicationContext.getBean("someComponent"));
     }
 
     @Test
-    public void testComponentHasSomeProperty () throws Exception {
-        TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
+    public void someComponentHasSomeProperty_Test () throws Exception {
+        SomeComponent someComponent = applicationContext.getBean(SomeComponent.class);
         Class[] paramList = { };
-        assertNotNull(testComponent.getClass().getMethod("getSomeProperty", paramList));
+        assertNotNull(someComponent.getClass().getMethod("getSomeProperty", paramList));
     }
 
     @Test
-    public void applicationPropertiesFileExists() throws Exception {
+    public void applicationPropertiesFileExists_Test () throws Exception {
         Resource applicationProperties = new ClassPathResource("/application.properties");
         Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
     }
 
     @Test
-    public void applicationPropertiesHasTestComponentProperty_Test() throws Exception {
+    public void applicationPropertiesHasSomecomponentProperty_Test () throws Exception {
         Resource applicationProperties = new ClassPathResource("/application.properties");
         Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
-        assertEquals("defaultProfile",props.getProperty("edu.cscc.java4.sbootlab.someProperty"));
+        assertEquals("defaultProfile",props.getProperty("edu.cscc.java4.sbootlab.SomeComponent.someProperty"));
     }
 
     @Test
-    public void testComponentSetSomePropertyProperlyDecorated_Test () throws Exception {
+    public void someComponentSetSomePropertyProperlyDecorated_Test () throws Exception {
         Class[] paramList = { String.class };
 
-        TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
-        Annotation annotation = testComponent.getClass().getMethod("setSomeProperty", paramList).getAnnotation(
+        SomeComponent someComponent = applicationContext.getBean(SomeComponent.class);
+        Annotation annotation = someComponent.getClass().getMethod("setSomeProperty", paramList).getAnnotation(
           org.springframework.beans.factory.annotation.Value.class);
         assertNotNull(annotation);
-        assertThat(annotation.toString(), CoreMatchers.containsString("${edu.cscc.java4.sbootlab.someProperty}"));
-        assertEquals("defaultProfile", testComponent.getSomeProperty());
+        assertThat(annotation.toString(), CoreMatchers.containsString("${edu.cscc.java4.sbootlab.SomeComponent.someProperty}"));
+        assertEquals("defaultProfile", someComponent.getSomeProperty());
     }
 
     @Test
@@ -102,6 +102,6 @@ public class SpringAppTests {
         assertEquals("You always pass failure on the way to success -- Mickey Rooney",someConfigProperties.getMessageOfTheDay());
     }
 
-    */
+     */
 
 }
