@@ -25,7 +25,7 @@ public class SpringAppDevProfileTests {
     private ApplicationContext applicationContext;
 
     @Test
-    public void applicationPropertiesFileExists() throws Exception {
+    public void applicationPropertiesFileExists_Test() throws Exception {
         Resource applicationProperties = new ClassPathResource("/application-devl.properties");
         Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
     }
@@ -33,13 +33,13 @@ public class SpringAppDevProfileTests {
     /* ----- uncomment one test at a time and add just enough code to make it pass -----
 
     @Test
-    public void testComponentHasExternalizedDevlProfileProperty () throws Exception {
+    public void someComponentHasExternalizedDevlProfileProperty_Test () throws Exception {
         Resource applicationProperties = new ClassPathResource("/application-devl.properties");
         Properties props = PropertiesLoaderUtils.loadProperties(applicationProperties);
-        assertEquals("developmentProfile",props.getProperty("edu.cscc.java4.sbootlab.someProperty"));
+        assertEquals("developmentProfile",props.getProperty("edu.cscc.java4.sbootlab.SomeComponent.someProperty"));
 
-        TestComponent testComponent = applicationContext.getBean(edu.cscc.java4.sbootlab.TestComponent.class);
-        assertEquals("developmentProfile",testComponent.getSomeProperty());
+        SomeComponent someComponent = applicationContext.getBean(SomeComponent.class);
+        assertEquals("developmentProfile", someComponent.getSomeProperty());
     }
 
     @Test
@@ -60,6 +60,6 @@ public class SpringAppDevProfileTests {
         assertEquals("Happiness is the only thing that multiplies when you share it. -- Albert Schweitzer",someConfigProperties.getMessageOfTheDay());
     }
 
-    */
+     */
 
 }
