@@ -21,13 +21,17 @@ __Important:__ you may not change the code in any test cases. _The only permissi
 1. In the ``pom.xml``, add the latest Spring Boot parent pom and
 two dependencies: ``spring-boot-starter`` and ``spring-boot-starter-test``
 1. Starting with ``edu.cscc.java4.sbootlab.SpringAppTests``:
-  1. get the first test to pass
-  1. One by one, get the next test to pass
-1. Once SpringAppTests is completely working, repeat these steps with ``edu.cscc.java4.sbootlab.SpringAppDevProfileTests``
+    1. get the first test to pass
+    1. One by one, get the next test to pass
+1. Once SpringAppTests is completely working, repeat the steps above with ``edu.cscc.java4.sbootlab.SpringAppDevProfileTests``
 
 ### Hints from the documentation:
 
+* [13.2.1 Inheriting the Starter Parent](13.2.1 Inheriting the Starter Parent)
+* [13.5 Starters](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#using-boot-starter)
+* [18. Using the @SpringBootApplication Annotation](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#using-boot-using-springbootapplication-annotation)
 * [24. Externalized Configuration](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config)
+* [24.3 Application Property Files](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config-application-property-files)
 * [24.4 Profile-specific Properties](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config-profile-specific-properties)
 * [24.8 Type-safe Configuration Properties](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config-typesafe-configuration-properties)
 
