@@ -25,8 +25,13 @@ two dependencies: ``spring-boot-starter`` and ``spring-boot-starter-test``
   1. One by one, get the next test to pass
 1. Once SpringAppTests is completely working, repeat these steps with ``edu.cscc.java4.sbootlab.SpringAppDevProfileTests``
 
-## Submitting your work
+### Hints from the documentation:
 
+* [24. Externalized Configuration](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config)
+* [24.4 Profile-specific Properties](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config-profile-specific-properties)
+* [24.8 Type-safe Configuration Properties](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config-typesafe-configuration-properties)
+
+## Submitting your work
 
 1. Create a pull request for your branch using [these instructions](https://github.com/jeff-anderson-cscc/submitting-assignments-lab#once-you-are-ready-to-submit-your-work-for-grading)
 1. Submit the assignment in Blackboard as described in [these instructions](https://github.com/jeff-anderson-cscc/submitting-assignments-lab#once-your-pull-request-is-created-and-i-am-added-as-a-reviewer)
