@@ -27,7 +27,7 @@ two dependencies: ``spring-boot-starter`` and ``spring-boot-starter-test``
 
 ### Hints from the documentation:
 
-* [13.2.1 Inheriting the Starter Parent](13.2.1 Inheriting the Starter Parent)
+* [13.2.1 Inheriting the Starter Parent](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#using-boot-maven-parent-pom)
 * [13.5 Starters](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#using-boot-starter)
 * [18. Using the @SpringBootApplication Annotation](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#using-boot-using-springbootapplication-annotation)
 * [24. Externalized Configuration](https://docs.spring.io/spring-boot/docs/2.1.3.RELEASE/reference/htmlsingle/#boot-features-external-config)
