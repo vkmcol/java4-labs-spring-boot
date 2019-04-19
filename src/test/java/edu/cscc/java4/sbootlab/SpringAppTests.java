@@ -82,7 +82,7 @@ public class SpringAppTests {
 
         Annotation configPropsAnnotation = someConfigProperties.getClass().getAnnotation(org.springframework.boot.context.properties.ConfigurationProperties.class);
         assertNotNull(configPropsAnnotation);
-        assertThat(configPropsAnnotation.toString(), CoreMatchers.containsString("prefix=\"edu.cscc.java4.sbootlab.config"));
+        assertThat(configPropsAnnotation.toString(), CoreMatchers.containsString("edu.cscc.java4.sbootlab.config"));
     }
 
     @Test
